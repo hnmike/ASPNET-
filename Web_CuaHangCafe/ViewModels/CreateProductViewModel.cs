@@ -11,6 +11,7 @@
         public string? MoTa { get; set; }
 
         public IFormFile HinhAnh { get; set; } = null!;
+        public string HinhAnhLink { get; set; } = null!;
 
         public string? GhiChu { get; set; }
 

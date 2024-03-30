@@ -81,7 +81,7 @@ namespace Web_CuaHangCafe.Areas.Admin.Controllers
         [Authentication]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(TbSanPham sanPham, IFormFile imageFile)
+        public IActionResult Create(CreateSanPhamDto sanPham, IFormFile imageFile)
         {
             //string fileName = "";
 
@@ -103,27 +103,36 @@ namespace Web_CuaHangCafe.Areas.Admin.Controllers
             //    GhiChu = createProduct.GhiChu,
             //    MaNhomSp = createProduct.MaLoaiSanPham
             //};
-
-            if (imageFile != null && imageFile.Length > 0)
+            string filePath = "";
+            string uniqueFileName = "";
+             if (sanPham.HinhAnh != null && sanPham.HinhAnh.Length > 0)
             {
                 // Đối với mục đích minh họa, chúng ta sẽ lưu ảnh vào thư mục Images trong wwwroot
                 string uploadFolder = Path.Combine(Path.Combine(hostEnvironment.WebRootPath, "img"), "products");
-                string uniqueFileName = Guid.NewGuid().ToString() + "_" + imageFile.FileName;
-                string filePath = Path.Combine(uploadFolder, uniqueFileName);
+                 uniqueFileName = Guid.NewGuid().ToString() + "_" + sanPham.HinhAnh.FileName;
+                filePath = Path.Combine(uploadFolder, uniqueFileName);
 
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
-                    imageFile.CopyTo(stream);
+                    sanPham.HinhAnh.CopyTo(stream);
                 }
 
                 // Lưu đường dẫn hoặc thông tin về ảnh vào cơ sở dữ liệu nếu cần
                 // Ví dụ: lưu đường dẫn filePath vào cơ sở dữ liệu
                 // ...
-
-                return RedirectToAction("Index");
             }
+             TbSanPham product = new TbSanPham()
+            {
+                TenSanPham = sanPham.TenSanPham,
+                MaNhomSp = sanPham.MaNhomSp,
+                MaSanPham = sanPham.MaSanPham,
+                GiaBan = sanPham.GiaBan,
+                MoTa = sanPham.MoTa,
+                GhiChu = sanPham.GhiChu,
+                HinhAnh = uniqueFileName,
 
-            //db.TbSanPhams.Add(product);
+            };
+            _context.TbSanPhams.Add(product);
             _context.SaveChanges();
             TempData["Message"] = "Thêm sản phẩm thành công";
 
@@ -159,7 +168,16 @@ namespace Web_CuaHangCafe.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Edit(int id, string name)
         {
-            var sanPham = _context.TbSanPhams.Find(id);
+            var sanPham = _context.TbSanPhams.Select(x=> new CreateProductViewModel()
+            {
+                MaSanPham = x.MaSanPham,
+                TenSanPham = x.TenSanPham,
+                GiaBan = x.GiaBan,
+                MoTa = x.MoTa,
+                HinhAnhLink = x.HinhAnh,
+                GhiChu = x.GhiChu,
+                MaLoaiSanPham = x.MaNhomSp
+            });
 
             ViewBag.MaNhomSp = new SelectList(_context.TbNhomSanPhams.ToList(), "MaNhomSp", "TenNhomSp");
             ViewBag.name = name;

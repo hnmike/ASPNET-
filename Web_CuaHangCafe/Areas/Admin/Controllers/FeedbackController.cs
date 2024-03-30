@@ -11,11 +11,11 @@ namespace Web_CuaHangCafe.Areas.Admin.Controllers
     [Route("Admin/Feedback")]
     public class FeedbackController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        public static ApplicationDbContext _context = new ApplicationDbContext() ;
 
-        public FeedbackController(ApplicationDbContext context)
+        public FeedbackController()
         {
-            _context = context;
+
         }
 
         [Route("")]

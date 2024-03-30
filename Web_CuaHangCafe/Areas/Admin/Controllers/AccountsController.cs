@@ -92,9 +92,9 @@ namespace Web_CuaHangCafe.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(TbQuanTriVien quanTriVien)
         {
-            string hashPass = HashPassword(quanTriVien.MatKhau);
+            //string hashPass = HashPassword(quanTriVien.MatKhau);
 
-            quanTriVien.MatKhau = hashPass;
+            //quanTriVien.MatKhau = hashPass;
 
             _context.Entry(quanTriVien).State = EntityState.Modified;
             _context.SaveChanges();

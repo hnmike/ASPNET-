@@ -56,7 +56,7 @@ namespace Web_CuaHangCafe.Controllers
 
             if (HttpContext.Session.GetString("TenNguoiDung") == null)
             {
-                var u = _context.TbQuanTriViens.Where(x => x.TenNguoiDung.Equals(user.TenNguoiDung) && x.MatKhau.Equals(hashPassword)).FirstOrDefault();
+                var u = _context.TbQuanTriViens.Where(x => x.TenNguoiDung.Equals(user.TenNguoiDung) && x.MatKhau.Equals(user.MatKhau)).FirstOrDefault();
 
                 if (u != null)
                 {
