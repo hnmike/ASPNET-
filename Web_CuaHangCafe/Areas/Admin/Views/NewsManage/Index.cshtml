@@ -56,7 +56,7 @@
                                 @Html.DisplayFor(modelItem => item.TieuDe)
                             </td>
                             <td>
-                                @(item.NgayDang.Value.ToString("dd/MM/yyyy"))
+                                @(item.NgayDang?.ToString("dd/MM/yyyy") ?? "N/A")
                             </td>
                             <td>
                                 <a class="btn btn-primary btn-sm" asp-action="Details" asp-route-id="@item.MaTinTuc" asp-route-name="@item.TieuDe">Xem</a>

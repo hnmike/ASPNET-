@@ -6,7 +6,7 @@
 
         public string TenSanPham { get; set; } = null!;
 
-        public decimal? GiaBan { get; set; }
+        public decimal? GiaBan { get; set; } 
 
         public string? MoTa { get; set; }
 

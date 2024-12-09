@@ -35,7 +35,7 @@
             Ngày đăng
         </dt>
         <dd class="col-sm-10">
-            @Model.NgayDang.Value.ToString("dd/MM/yyyy")
+            @(Model.NgayDang?.ToString("dd/MM/yyyy") ?? "N/A")
         </dd>
         <dt class="col-sm-2">
             Nội dung

@@ -62,7 +62,7 @@
 
                                 @foreach (var item in Model)
                                 {
-                                    <li class="item">@item.TenSp <span>@item.ThanhTien.Value.ToString("n0") &#8363;</span></li>
+                                    <li class="item">@item.TenSp <span>@Model.Sum(p=>p.ThanhTien).ToString("n0") &#8363;</span></li>
                                 }
                             </ul>
                         </div>

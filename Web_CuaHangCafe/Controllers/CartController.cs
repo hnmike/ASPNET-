@@ -52,7 +52,7 @@ namespace Web_CuaHangCafe.Controllers
         {
             var myCart = Carts;
             var item = myCart.SingleOrDefault(p => p.MaSp == id);
-            decimal? tongTien = 0;
+   
 
             if (item == null)
             {
@@ -63,8 +63,8 @@ namespace Web_CuaHangCafe.Controllers
                     MaSp = id,
                     TenSp = hangHoa.TenSanPham,
                     DonGia = hangHoa.GiaBan.Value,
-                    SoLuong = quantity,
-                    AnhSp = hangHoa.HinhAnh
+                    SoLuong = quantity
+                    
                 };
 
                 myCart.Add(item);

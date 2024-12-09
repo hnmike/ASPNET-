@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-lg-6 p-0">
                 <div class="categories__item categories__large__item set-bg"
-                     data-setbg="../img/categories/category-1.jpg">
+                     data-setbg="../img/categories/category-1.jpg?v=2">
                     <div class="categories__text">
                         <h1>Thưởng thức cà phê</h1>
                         <p>Nơi cuộc hẹn tròn đầy với cà phê, món ăn nhẹ và không gian cảm hứng.</p>
@@ -24,7 +24,7 @@
             <div class="col-lg-6">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                        <div class="categories__item set-bg" data-setbg="../img/categories/category-2.jpg">
+                        <div class="categories__item set-bg" data-setbg="../img/categories/category-2.jpg?v=2">
                             <div class="categories__text">
                                 <h4>Trà</h4>
                                 <p>Không chỉ có cà phê</p>
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                        <div class="categories__item set-bg" data-setbg="../img/categories/category-3.jpg">
+                        <div class="categories__item set-bg" data-setbg="../img/categories/category-3.jpg?v=2">
                             <div class="categories__text">
                                 <h4>Tin tức</h4>
                                 <p>Cập nhật tin tức mới nhất từ chúng tôi</p>
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                        <div class="categories__item set-bg" data-setbg="../img/categories/category-4.jpg">
+                        <div class="categories__item set-bg" data-setbg="../img/categories/category-4.jpg?v=2">
                             <div class="categories__text">
                                 <h4>Giới thiệu</h4>
                                 <p>Chúng tôi là ai</p>
@@ -57,7 +57,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                        <div class="categories__item set-bg" data-setbg="../img/categories/category-5.jpg">
+                        <div class="categories__item set-bg" data-setbg="../img/categories/category-5.jpg?v=2">
                             <div class="categories__text">
                                 <h4>Liên hệ</h4>
                                 <p>Bạn muốn nhắn gì với chúng tôi</p>
@@ -87,10 +87,10 @@
             {
                 <div class="col-lg-3 col-md-4 col-sm-6 mix women">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg=@Url.Content("../img/products/" + item.HinhAnh)>
+                        <div class="product__item__pic set-bg" data-setbg=@Url.Content("../img/products/" + item.HinhAnh + "?v=2")>
                             <ul class="product__hover">
                                 <li>
-                                    <a href=@Url.Content("../img/products/" + item.HinhAnh) class="image-popup">
+                                    <a href=@Url.Content("../img/products/" + item.HinhAnh + "?v=2") class="image-popup">
                                         <span><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
                                     </a>
                                 </li>
@@ -116,7 +116,10 @@
                                     @item.TenSanPham
                                 </a>
                             </h6>
-                            <div class="product__price">@(item.GiaBan.Value.ToString("n0")) &#8363;</div>
+                            <div class="product__price">
+                                @(item.GiaBan.HasValue ? item.GiaBan.Value.ToString("n0") + " &#8363;" : "N/A")
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -141,7 +144,7 @@
             {
                 <div class="col-lg-4">
                     <div class="blog__item">
-                        <div class="blog__item__pic set-bg" data-setbg=@Url.Content("../img/news/" + item.HinhAnh)></div>
+                        <div class="blog__item__pic set-bg" data-setbg=@Url.Content("../img/news/" + item.HinhAnh + "?v=2")></div>
                         <div class="blog__item__text">
                             <ul>
                                 <li>@item.NgayDang.Value.ToString("dd/MM/yyyy")</li>
@@ -163,7 +166,7 @@
 <!--News Section End-->
 
 <!--Banner Section Begin-->
-<section class="banner set-bg" data-setbg="../img/banner/banner-1.jpg">
+<section class="banner set-bg" data-setbg="../img/banner/banner-1.jpg?v=2">
     <div class="container">
         <div class="row">
             <div class="col-xl-7 col-lg-8 m-auto">

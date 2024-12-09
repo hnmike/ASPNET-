@@ -54,7 +54,7 @@
                                 @Html.DisplayFor(modelItem => item.TenSanPham)
                             </td>
                             <td>
-                                @(item.GiaBan.Value.ToString("n0")) &#8363;
+                                @(item.GiaBan?.ToString("n0") ?? "N/A") &#8363;
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.MaNhomSp)

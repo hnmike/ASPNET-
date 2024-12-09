@@ -35,7 +35,7 @@
             Giá bán
         </dt>
         <dd class="col-sm-10">
-            @Model.GiaBan.Value.ToString("n0") &#8363;
+            @(Model.GiaBan?.ToString("n0") ?? "N/A") &#8363;
         </dd>
         <dt class="col-sm-2">
             Loại sản phẩm

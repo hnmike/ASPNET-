@@ -3,10 +3,10 @@
     public class CartItem
     {
         public int MaSp { get; set; }
-        public string TenSp { get; set; } = null!;
+        public string TenSp { get; set; }
         public string AnhSp { get; set; } = null!;
         public decimal? DonGia { get; set; }
         public int SoLuong { get; set; }
-        public decimal? ThanhTien => SoLuong * DonGia;
+        public decimal ThanhTien => DonGia.HasValue ? SoLuong * DonGia.Value : 0;
     }
 }
