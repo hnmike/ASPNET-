@@ -1,4 +1,4 @@
-# ASP.NET COFFEE N TEA Project
+# ASP.NET COFFEEDRINK N TEA Project
 
 ## Overview
 This project is an ASP.NET MVC application designed to manage a  shop. It includes both a public-facing website and an administrative backend for managing various aspects of the coffee shop, such as products, bills, and news.
