@@ -81,7 +81,7 @@
                                             @item.TenSanPham
                                         </a>
                                     </h6>
-                                    <div class="product__price">@(item.GiaBan.Value.ToString("n0")) &#8363;</div>
+                                    <div class="product__price">@(item.GiaBan?.ToString("n0") ?? "0") &#8363;</div>
                                 </div>
                             </div>
                         </div>
